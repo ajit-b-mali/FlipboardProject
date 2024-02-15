@@ -1,0 +1,249 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: black;
+}
+.search {
+  height: 40vh;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+.search::before,
+.search img,
+.lightbox {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  align-items: center;
+}
+.search::before {
+  content: "";
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.25);
+}
+.search img {
+  object-fit: cover;
+}
+.search .content {
+  z-index: 2;
+  color: #fff;
+  padding: 0 13px;
+  text-align: center;
+  position: relative;
+}
+.search h1 {
+  font-size: 2.65rem;
+  font-weight: 600;
+}
+.search p {
+  margin-top: 8px;
+  font-size: 1.5rem;
+}
+.search .search-box {
+  height: 55px;
+  margin: 45px 0;
+  position: relative;
+}
+.search-box i {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  cursor: default;
+  color: #8d8d8d;
+  font-size: 1.4rem;
+  transform: translateY(-50%);
+}
+.search-box input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  font-size: 1.1rem;
+  padding-left: 55px;
+  background: #fff;
+  border-radius: 30px;
+}
+.search-box input::placeholder {
+  color: #929292;
+}
+.search-box input:focus::placeholder {
+  color: #bfbfbf;
+}
+
+.Gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Gallery .images {
+  gap: 10px;
+  max-width: 80%;
+  margin-top: 40px;
+  columns: 5 340px;
+}
+.images .card {
+  display: flex;
+
+  position: relative;
+  list-style: none;
+  margin-bottom: 14px;
+  border-radius: 4px;
+}
+
+.images .card .details {
+  position: absolute;
+  bottom: -100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: bottom 0.1s ease;
+  padding: 15px 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.images .card:hover .details {
+  bottom: 0;
+}
+.photography {
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.photography i {
+  font-size: 1.4rem;
+  margin-right: 10px;
+}
+.photography span {
+  font-size: 1.05rem;
+}
+.card .details button {
+  padding: 3px 8px;
+  font-size: 1.5rem;
+  background: #fff;
+  cursor: pointer;
+}
+.card .details .Btn {
+  background: red;
+  cursor: pointer;
+  font-size: 20px;
+  width: 80px;
+  height: 40px;
+  border-radius: 17px;
+  padding: 5px 10px;
+  margin: 10px 10px;
+  border: none;
+  color: #fff;
+}
+
+.images img {
+  width: 100%;
+}
+
+.Gallery .load-more {
+  margin: 50px 0;
+  font-size: 1.2rem;
+  background: #8a6cff;
+  padding: 12px 27px;
+  color: #fff;
+  cursor: pointer;
+}
+.Gallery .load-more.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/*.lightbox {
+    z-index: 5;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.65);
+    display: none;
+  }
+  /*.lightbox.show {
+    visibility: visible;
+  }
+  .lightbox .wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    padding: 20px;
+    max-width: 850px;
+    background: #fff;
+    border-radius: 6px;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  /*.lightbox.show .wrapper {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .wrapper header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  header .photographer {
+    color: #333;
+  }
+  header .photographer i {
+    font-size: 1.7rem;
+    cursor: auto;
+  }
+  header .photographer span {
+    font-size: 1.2rem;
+  }
+  header .buttons i {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 40px;
+    text-align: center;
+    background: #8A6CFF;
+    border-radius: 4px;
+    transition: 0.2s ease;
+  }
+  /*header .buttons i:first-child:hover {
+    background: #704dff;
+  }
+  header .buttons i:last-child {
+    margin-left: 10px;
+    font-size: 1.25rem;
+    background: #6C757D;
+  }
+ /* header .buttons i:last-child:hover {
+    background: #5f666d;
+  }
+  .preview-img{
+    display: flex;
+    margin-top: 25px;
+    justify-content: center;
+  }
+ .wrapper .preview-img .img {
+    max-height: 65vh;
+    max-width: 90vh;
+  }
+  .preview-img .img img{
+   width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  /*.preview-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }*/
