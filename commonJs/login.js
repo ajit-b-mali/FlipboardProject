@@ -18,7 +18,7 @@ const Log = () => {
             .then((userCredential) => {
                 Messages.innerHTML = "Sign In Successful"
                 Messages.style.color = "green"
-                location.href = "/pages/home/"
+                location.href = "../pages/home/"
             })
             .catch((error) => {
                 Messages.innerHTML = error.message
@@ -28,5 +28,5 @@ const Log = () => {
 
 
 const ForgetPassword = () => {
-    window.location.assign("/pages/forgetPassword/")
+    window.location.assign("../pages/forgetPassword/")
 }
