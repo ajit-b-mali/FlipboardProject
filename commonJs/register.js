@@ -41,7 +41,7 @@ const signup = () => {
                     Message.style.color = "green"
 
                 })
-                window.location = "../pages/choice/"
+                window.location = "../../pages/choice/"
             })
             .catch((error) => {
                 Message.innerHTML = "something went wrong";

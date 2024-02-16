@@ -36,7 +36,7 @@ function activateButton() {
 
 function submitAndChangeColor() {
   if (choises.length === 5) {
-    window.location.href = "../pages/home/";
+    window.location.href = "../../pages/home/";
   } else {
     // alert("plz enter your choice")
     print_msg.innerHTML = "plz Select the choice";
