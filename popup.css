@@ -209,7 +209,6 @@ body {
   cursor: pointer;
 }
 
-
 .center .Btn {
   position: relative;
   width: 150px;
@@ -225,7 +224,7 @@ body {
 .center .Btn::before,
 .center .Btn::after {
   position: absolute;
-  content: '';
+  content: "";
   top: 0;
   left: 0;
   width: 100%;
@@ -244,7 +243,7 @@ body {
   left: -5%;
   z-index: -3;
   transform: scaleX(0.5);
-  transition: all .6s;
+  transition: all 0.6s;
 }
 
 .center .Btn:hover::after {
