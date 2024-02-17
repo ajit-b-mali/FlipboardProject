@@ -14,8 +14,8 @@
 
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-storage.js"></script>
 
 </head>
 
@@ -121,17 +121,20 @@
                     id="progressbar">
                 </div>
             </div>
-            <p id="done" style="color: green;font-size: 15px; display: none;"></p>
+            <p id="done" style="color: green;font-size: 30px;"></p>
             <div id="uploadedmssage">
               <p style="color: green;font-size: 15px; display: none;">Uploaded</p>
             </div>
+            <!-- <div id="submitbuttondiv" style="margin-top: 10px;" class="col-12">
+                <a id="createpostbtn" class="col-7" style="text-decoration: none;" onclick="createPost()">Post</a>
+            </div> -->
             <div id="submitbuttondiv" style="margin-top: 10px;" class="col-12">
-                <a id="createpostbtn" class="col-7" style="text-decoration: none;">Post</a>
-            </div>
+                <a id="createpostbtn" class="col-7" onclick="createpost()" style="text-decoration: none;">Post</a>
+              </div>
         </div>
     </div>
     <!--Script section-->
-
+    <script src="../../commonJs/firebase.js"></script>
     <script src="../../commonJs/mode.js"></script>
     <script src="createpost.js"></script>
 
@@ -154,7 +157,7 @@
         }
         list.forEach((item) => item.addEventListener("click", activeLink));
     </script>
-    <script src="../../commonJs/firebase.js"></script>
+   
 </body>
 
 </html>
