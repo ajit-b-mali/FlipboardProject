@@ -5,7 +5,7 @@ let currentUser = "";
 let url = "";
 let fileType = "";
 let done = document.getElementById("done");
-let uid = "";
+let uid;
 
 let uploadimg = (event) => {
   fileType = event.target.files[0].type;
