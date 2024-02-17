@@ -5,7 +5,7 @@ let currentUser = "";
 let url = "";
 let fileType = "";
 let done = document.getElementById("done");
-let uid = "";
+let uid;
 
 let uploadimg = (event) => {
   fileType = event.target.files[0].type;
@@ -35,7 +35,9 @@ let uploadimg = (event) => {
   );
 };
 
+
 var d = new Date().toLocaleDateString();
+
 
 function createpost() {
   if (postValue.value !== " " || url !== " ") {
@@ -50,7 +52,7 @@ function createpost() {
         like: "",
         dislikes: "",
         comments: "",
-        Date: `${d}`,
+        Date: `${d}`
       })
       .then((res) => {
         firebase
@@ -58,10 +60,10 @@ function createpost() {
           .collection("posts/")
           .doc(res.id)
           .update({
-            id: res.id,
+            id: res.id
           })
           .then(() => {
-            done.style.display = "none";
+            done.style.display = "none"
             document.getElementById("uploadedmssage").style.display = "block";
             setTimeout(() => {
               location.reload();

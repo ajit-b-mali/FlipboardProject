@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- third party -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    
+    <!-- my css -->
+    <link rel="stylesheet" href="../../commonCss/nav.css" />
+    <link rel="stylesheet" href="../../commonCss/mode.css" />
+    <link rel="stylesheet" href="./CreatePost.css" />
+
+    <!-- third party -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-storage.js"></script>
+
+    <!-- my js -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  </head>
+
+  <body>
+    <!--Top Section-->
+    <!-- <div class="topbar">
+      <div class="action">
+        <div class="profile" onclick="menuToggle()">
+          <img
+            src="https://media.istockphoto.com/id/1317804578/photo/one-businesswoman-headshot-smiling-at-the-camera.jpg?b=1&s=612x612&w=0&k=20&c=XdZqQ92Yk82otKZio_pE0KURn0U08sIr5Vz9bFSm7bM="
+          />
+        </div>
+        <div class="menu">
+          <ul class="ul-1">
+            <li class="li-1">
+              <i class="ri-user-line icon-1"></i><a href="#">My Profile</a>
+            </li>
+            <li class="li-1">
+              <i class="ri-mail-line icon-1"></i><a href="#">Inbox</a>
+            </li>
+            <li class="li-1">
+              <i class="ri-settings-2-line icon-1"></i><a href="#">Setting</a>
+            </li>
+            <li class="li-1">
+              <i class="ri-question-line icon-1"></i><a href="#">Help</a>
+            </li>
+            <li class="li-1">
+              <i class="ri-logout-box-line icon-1"></i><a href="#">LogOut</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <header class="dark-mode" style="z-index: 10">
+        <input type="checkbox" id="toogle-mode" class="checkbox" />
+        <label class="label" for="toogle-mode">
+          <i class="fa fa-moon-o"></i>
+          <i class="fa fa-sun-o"></i>
+          <div class="circle"></div>
+        </label>
+      </header>
+    </div> -->
+    <!-- Navigation -->
+    <!-- 
+    <ul class="navigation" style="z-index: 10">
+      <li>
+        <a href="../home/">
+          <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+          <span class="text">Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="../search/">
+          <span class="icon"><ion-icon name="search-outline"></ion-icon></span>
+          <span class="text">Search</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="../createPost/">
+          <span class="icon"><ion-icon name="add-outline"></ion-icon></span>
+          <span class="text">Create</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+          <span class="text">Profile</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+          <span class="text">Following</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"
+            ><ion-icon name="settings-outline"></ion-icon>
+          </span>
+          <span class="text">Setting</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon" onclick="logout()"
+            ><ion-icon name="log-out-outline"></ion-icon>
+          </span>
+          <span class="text">LogOut</span>
+        </a>
+      </li>
+    </ul> -->
+    <!--Create Post Section-->
+    <div class="createPost">
+        <h2>Create Post</h2>
+        <img id="preview">
+        <textarea id="post-msg" placeholder="Type here"></textarea>
+        
+        <div class="progress" id="progressdiv" style="display: none">
+          <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="progressbar" style="background-color: aqua;"></div>
+        </div>
+        
+        <p id="link-box">Image Url</p>
+        <div id="uploadedmssage">
+          <p style="color: green; font-size: 15px; display: none">Uploaded</p>
+        </div>
+        
+        <div class="btn-wrapper">
+          <label for="image-file" class="upload-image-label">
+            <span>Upload image</span>
+            <img src="image.png" />
+          </label>
+          <input type="file" id="image-file"/>
+          <a id="create-post">Post</a>
+        </div>
+    </div>
+
+    <!--Script section-->
+    <!-- <script src="../../commonJs/firebase.js"></script> -->
+    <!-- <script src="../../commonJs/mode.js"></script> -->
+    <script type="module" src="./createpost.js"></script>
+  </body>
+</html>
