@@ -44,7 +44,6 @@ toggle_inp.addEventListener("click", function (a) {
   }
 });
 
-
 let showloginbtns = document.querySelectorAll(".show-login");
 showloginbtns.forEach((showlogin) => {
   showlogin.addEventListener("click", function () {
@@ -65,6 +64,6 @@ closebtns.forEach((cbtn) => {
   });
 });
 
-setTimeout(()=>{
+setTimeout(() => {
   document.querySelector(".login-form").classList.add("active");
-},6000);
+}, 6000);
