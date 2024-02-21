@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="/commonCss/mode.css">
-    <link rel="stylesheet" href="/commonCss/nav.css">
+    <link rel="stylesheet" href="../../commonCss/mode.css">
+    <link rel="stylesheet" href="../../commonCss/nav.css">
     
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
@@ -56,19 +56,19 @@
   <!---Navigation-->
   <ul class="navigation" style="z-index: 10;">
     <li>
-      <a href="/pages/home/">
+      <a href="../home/">
         <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
         <span class="text">Home</span>
       </a>
     </li>
     <li class="active">
-      <a href="/pages/search/">
+      <a href="../search/">
         <span class="icon"><ion-icon name="search-outline"></ion-icon></span>
         <span class="text">Search</span>
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="../createPost/">
         <span class="icon"><ion-icon name="add-outline"></ion-icon></span>
         <span class="text">Create</span>
       </a>
@@ -116,7 +116,7 @@
         
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<script src="/commonJs/mode.js"></script>
+<script src="../../commonJs/mode.js"></script>
 <script>
 let list = document .querySelectorAll('.navigation li');
 function activeLink(){
@@ -129,7 +129,7 @@ item.addEventListener('click',activeLink));
 </script> 
 <script src="../../commonJs/firebase.js"></script>
 
-<script src="main.js"></script>
+<script src="./main.js"></script>
 <script>
   function logout(){
     firebase.auth().signOut();
@@ -141,8 +141,6 @@ item.addEventListener('click',activeLink));
     }else{
       location.href="/index.html"
     }
-
-
   });
 </script>
 </body>
