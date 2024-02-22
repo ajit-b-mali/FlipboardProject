@@ -4,161 +4,146 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="/commonCss/mode.css" />
-    <link rel="stylesheet" href="/commonCss/nav.css" />
-
-    <link
-      rel="stylesheet"
-      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
-    />
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../../commonCss/mode.css">
+    <link rel="stylesheet" href="../../commonCss/nav.css">
+    
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"/>
 
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
-  </head>
-  <body>
-    <div class="topbar">
-      <div class="action">
-        <div class="profile" onclick="menuToggle()">
-          <img
-            src="https://media.istockphoto.com/id/1317804578/photo/one-businesswoman-headshot-smiling-at-the-camera.jpg?b=1&s=612x612&w=0&k=20&c=XdZqQ92Yk82otKZio_pE0KURn0U08sIr5Vz9bFSm7bM="
-          />
-        </div>
-        <div class="menu">
-          <ul class="ul-1">
-            <li class="li-1">
-              <i class="ri-user-line icon-1"></i><a href="#">My Profile</a>
-            </li>
-            <li class="li-1">
-              <i class="ri-mail-line icon-1"></i><a href="#">Inbox</a>
-            </li>
-            <li class="li-1">
-              <i class="ri-settings-2-line icon-1"></i><a href="#">Setting</a>
-            </li>
-            <li class="li-1">
-              <i class="ri-question-line icon-1"></i><a href="#">Help</a>
-            </li>
-            <li class="li-1">
-              <i class="ri-logout-box-line icon-1"></i><a href="#">LogOut</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <header class="dark-mode" style="z-index: 10">
-        <input type="checkbox" id="toogle-mode" class="checkbox" />
-        <label class="label" for="toogle-mode">
-          <i class="fa fa-moon-o"></i>
-          <i class="fa fa-sun-o"></i>
-          <div class="circle"></div>
-        </label>
-      </header>
+</head>
+<body>
+<div class="topbar">
+  <div class="action">
+    <div class="profile" onclick="menuToggle()">
+      <img
+        src="https://media.istockphoto.com/id/1317804578/photo/one-businesswoman-headshot-smiling-at-the-camera.jpg?b=1&s=612x612&w=0&k=20&c=XdZqQ92Yk82otKZio_pE0KURn0U08sIr5Vz9bFSm7bM=">
     </div>
-    <!---Navigation-->
-    <ul class="navigation" style="z-index: 10">
-      <li>
-        <a href="/pages/home/">
-          <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-          <span class="text">Home</span>
-        </a>
-      </li>
-      <li class="active">
-        <a href="/pages/search/">
-          <span class="icon"><ion-icon name="search-outline"></ion-icon></span>
-          <span class="text">Search</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span class="icon"><ion-icon name="add-outline"></ion-icon></span>
-          <span class="text">Create</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-          <span class="text">Profile</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
-          <span class="text">Following</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span class="icon"
-            ><ion-icon name="settings-outline"></ion-icon
-          ></span>
-          <span class="text">Setting</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span class="icon" onclick="logout()"
-            ><ion-icon name="log-out-outline"></ion-icon
-          ></span>
-          <span class="text">LogOut</span>
-        </a>
-      </li>
-    </ul>
+    <div class="menu">
+      <ul class="ul-1">
+        <li class="li-1">
+          <i class="ri-user-line icon-1"></i><a href="#">My Profile</a>
+        </li>
+        <li class="li-1">
+          <i class="ri-mail-line icon-1"></i><a href="#">Inbox</a>
+        </li>
+        <li class="li-1">
+          <i class="ri-settings-2-line icon-1"></i><a href="#">Setting</a>
+        </li>
+        <li class="li-1">
+          <i class="ri-question-line icon-1"></i><a href="#">Help</a>
+        </li>
+        <li class="li-1">
+          <i class="ri-logout-box-line icon-1"></i><a href="#">LogOut</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <header class="dark-mode" style="z-index: 10">
+    <input type="checkbox" id="toogle-mode" class="checkbox" />
+    <label class="label" for="toogle-mode">
+      <i class="fa fa-moon-o"></i>
+      <i class="fa fa-sun-o"></i>
+      <div class="circle"></div>
+    </label>
+  </header>
+</div>
+  <!---Navigation-->
+  <ul class="navigation" style="z-index: 10;">
+    <li>
+      <a href="../home/">
+        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+        <span class="text">Home</span>
+      </a>
+    </li>
+    <li class="active">
+      <a href="../search/">
+        <span class="icon"><ion-icon name="search-outline"></ion-icon></span>
+        <span class="text">Search</span>
+      </a>
+    </li>
+    <li>
+      <a href="../createPost/">
+        <span class="icon"><ion-icon name="add-outline"></ion-icon></span>
+        <span class="text">Create</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+        <span class="text">Profile</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+        <span class="text">Following</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+        <span class="text">Setting</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span class="icon" onclick="logout()"><ion-icon name="log-out-outline"></ion-icon></span>
+        <span class="text">LogOut</span>
+      </a>
+    </li>
+  </ul>
 
     <section class="search">
-      <img src="../../assets/search-img.jpg" alt="search-img" />
-      <div class="content">
-        <p>Search and download any images within a second</p>
-        <div class="search-box">
-          <i class="fa fa-search"></i>
-          <input type="text" placeholder="Search images" id="search-box" />
+        <img src="../../assets/search-img.jpg" alt="search-img" >
+        <div class="content">
+          <p>Search and download any images within a second</p>
+          <div class="search-box">
+            <i class="fa fa-search"></i>
+            <input type="text" placeholder="Search images" id="search-box">
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="Gallery">
-      <ul class="images"></ul>
-      <button class="load-more">Load More</button>
-    </section>
+      </section>
+            <section class="Gallery">
+                <ul class="images"> </ul>
+                <button class="load-more">Load More</button>
+            </section>
+        
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="../../commonJs/mode.js"></script>
+<script>
+let list = document .querySelectorAll('.navigation li');
+function activeLink(){
+list.forEach((item) => 
+item.classList.remove('active'));
+this.classList.add('active');
+}
+list.forEach((item) => 
+item.addEventListener('click',activeLink));
+</script> 
+<script src="../../commonJs/firebase.js"></script>
 
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-    <script src="../../commonJs/mode.js"></script>
-    <script>
-      let list = document.querySelectorAll(".navigation li");
-      function activeLink() {
-        list.forEach((item) => item.classList.remove("active"));
-        this.classList.add("active");
-      }
-      list.forEach((item) => item.addEventListener("click", activeLink));
-    </script>
-    <script src="../../commonJs/firebase.js"></script>
+<script src="./main.js"></script>
+<script>
+  function logout(){
+    firebase.auth().signOut();
 
-    <script src="./main.js"></script>
-    <script>
-      function logout() {
-        firebase.auth().signOut();
-      }
-      firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          console.log("user found");
-        } else {
-          location.href = "/index.html";
-        }
-      });
-    </script>
-  </body>
+  }
+  firebase.auth().onAuthStateChanged((user) =>{
+    if(user){
+      console.log("user found");
+    }else{
+      location.href="/index.html"
+    }
+
+
+  });
+</script>
+</body>
 </html>
