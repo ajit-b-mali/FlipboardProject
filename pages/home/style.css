@@ -22,32 +22,20 @@ body {
   background-color: grey;
 }
 
-/* .pin_container {
-    margin: 0;
-    padding: 0;
-    width: 80vw;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: grid;
-    grid-template-columns: repeat(auto-fill, var(--card_width));
-    grid-auto-rows: var(--row_increment);
-    justify-content: center;
-    background-color:var(--primary-bgcolor);
-} */
 
 .pin_container {
   margin: 0;
   padding: 0;
   width: 80vw;
   position: absolute;
-  left: 50%;
+  left: 55%;
   transform: translateX(-50%);
   display: grid;
   grid-template-columns: repeat(auto-fill, var(--card_width));
   grid-auto-rows: var(--row_increment);
   justify-content: center;
   top: 10%;
+  /* background-color: red; */
 }
 
 h1 {

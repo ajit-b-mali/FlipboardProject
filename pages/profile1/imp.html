@@ -3,10 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="/commonCss/mode1.css" />
+    <title>Sidebar</title>
     <link rel="stylesheet" href="/commonCss/nav1.css" />
+    <link rel="stylesheet" href="/commonCss/mode.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -15,23 +14,8 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
-    />
-
-    <!-- firebase -->
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
   </head>
-
-  <body class="">
+  <body>
     <div class="topbar">
       <div class="action">
         <div class="profile" onclick="menuToggle()">
@@ -147,43 +131,26 @@
       </div>
     </div>
 
-    <main></main>
+    <main>
+      |<h1>hello</h1>
+    </main>
 
-    <div class="pin_container"></div>
-   
-    <script src="/commonJs/nav.js"></script>
-    <script src="/commonJs/mode.js"></script>
-    <script src="./main.js"></script>
-    <script src="./url.js"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
     ></script>
-
     <script
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <script src="/commonJs/nav.js"></script>
+    <script src="/commonJs/mode.js"></script>
 
     <script>
       function menuToggle() {
         const toggleMenu = document.querySelector(".menu1");
         toggleMenu.classList.toggle("active");
       }
-    </script>
-    
-   <script src="../../commonJs/firebase.js"></script>
-    <script>
-      function logout() {
-        firebase.auth().signOut();
-      }
-      firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          console.log("user found");
-        } else {
-          location.href = "/index.html";
-        }
-      });
     </script>
   </body>
 </html>
