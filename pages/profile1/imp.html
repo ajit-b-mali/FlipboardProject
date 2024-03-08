@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar</title>
+    <link rel="stylesheet" href="/commonCss/nav1.css" />
+    <link rel="stylesheet" href="/commonCss/mode.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="action">
+        <div class="profile" onclick="menuToggle()">
+          <img
+            src="https://media.istockphoto.com/id/1317804578/photo/one-businesswoman-headshot-smiling-at-the-camera.jpg?b=1&s=612x612&w=0&k=20&c=XdZqQ92Yk82otKZio_pE0KURn0U08sIr5Vz9bFSm7bM="
+          />
+        </div>
+        <div class="menu1">
+          <ul class="ul-1">
+            <li class="li-1">
+              <i class="ri-user-line icon-1"></i><a href="#">My Profile</a>
+            </li>
+            <li class="li-1">
+              <i class="ri-mail-line icon-1"></i><a href="#">Inbox</a>
+            </li>
+            <li class="li-1">
+              <i class="ri-settings-2-line icon-1"></i><a href="#">Setting</a>
+            </li>
+            <li class="li-1">
+              <i class="ri-question-line icon-1"></i><a href="#">Help</a>
+            </li>
+            <li class="li-1">
+              <i class="ri-logout-box-line icon-1"></i><a href="#">LogOut</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <header class="dark-mode" style="z-index: 10">
+        <input type="checkbox" id="toogle-mode" class="checkbox" />
+        <label class="label" for="toogle-mode">
+          <i class="fa fa-moon-o"></i>
+          <i class="fa fa-sun-o"></i>
+          <div class="circle"></div>
+        </label>
+      </header>
+    </div>
+
+    <!--nav-->
+    <div class="menu">
+      <ion-icon name="menu-outline"></ion-icon>
+      <ion-icon name="close-outline"></ion-icon>
+    </div>
+
+    <div class="barra-lateral">
+      <div>
+        <div class="nombre-pagina">
+          <ion-icon id="cloud" name="cloud-outline"></ion-icon>
+          <span>Apex</span>
+        </div>
+        <button class="boton">
+          <ion-icon name="add-outline"></ion-icon>
+          <span>Create new</span>
+        </button>
+      </div>
+
+      <nav class="navegacion">
+        <ul>
+          <li>
+            <a id="active" href="/pages/home/index.html">
+              <!-- <ion-icon name="mail-unread-outline"></ion-icon> -->
+              <ion-icon name="home-outline"></ion-icon>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="/pages/search/index.html">
+              <!-- <ion-icon name="star-outline"></ion-icon> -->
+              <ion-icon name="search-outline"></ion-icon>
+              <span>Search</span>
+            </a>
+          </li>
+          <li>
+            <a href="/pages/createPost/index.html">
+              <!-- <ion-icon name="paper-plane-outline"></ion-icon> -->
+              <ion-icon name="add-outline"></ion-icon>
+              <span>Create</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <ion-icon name="people-outline"></ion-icon>
+              <!-- <i class="fa-regular fa-users"></i> -->
+              <span>People</span>
+            </a>
+          </li>
+          <li>
+            <a href="imp.html">
+              <ion-icon name="bookmark-outline"></ion-icon>
+              <span>Important</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <ion-icon name="settings-outline"></ion-icon>
+              <span>Setting</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="logout()">
+              <ion-icon name="trash-outline"></ion-icon>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div>
+        <div class="modo-oscuro">
+          <div class="switch"></div>
+        </div>
+
+        <div class="usuario"></div>
+      </div>
+    </div>
+
+    <main>
+      |<h1>hello</h1>
+    </main>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/commonJs/nav.js"></script>
+    <script src="/commonJs/mode.js"></script>
+
+    <script>
+      function menuToggle() {
+        const toggleMenu = document.querySelector(".menu1");
+        toggleMenu.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
