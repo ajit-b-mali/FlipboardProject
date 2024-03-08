@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.inputfile {
+    display: none;
+}
+
+label {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-bottom: 10px;
+    font-size: 100px;
+    background: linear-gradient(45deg, blue, red);
+    cursor: pointer;
+}
+
+button {
+    padding: 20px 25px;
+    background: rgb(12, 70, 179);
+    color: white;
+    border: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.bar {
+    height: 50px;
+    width: 500px;
+    background: gray;
+    margin-bottom: 10px;
+}
+
+.progress {
+    background: linear-gradient(12deg, red, blue);
+    height: 100%;
+    width: 0%;
+}
+
+.uploadPercentage {
+    font-size: 25px;
+}

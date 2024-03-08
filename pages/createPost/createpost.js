@@ -1,12 +1,29 @@
-let postValue = document.getElementById("textarea");
-let progressDiv = document.getElementById("progressdiv");
-let progressBar = document.getElementById("progressbar");
-let currentUser = "";
+let postvalue = document.getElementById("textarea");
+var progressDiv = document.getElementById("progressdiv");
+var progressbar = document.getElementById("progressbar");
+let currentuser = "";
 let url = "";
 let fileType = "";
-let done = document.getElementById("done");
+var done = document.getElementById("done");
 let uid;
+let alluser = [];
+let userimg = document.getElementById("userimg");
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    if (user.emailVerified) {
+      uid = user.uid;
+      console.log("Email is verified!");
+    } else {
+      window.location.assign("./email.html");
+    }
+  } else {
+    window.location.assign("./login.html");
+  }
+});
 
+firebase.auth().onAuthStateChanged((user) => {
+  currentuser = user;
+});
 let uploadimg = (event) => {
   fileType = event.target.files[0].type;
   var uploadfile = firebase
@@ -19,12 +36,12 @@ let uploadimg = (event) => {
     (snapshot) => {
       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       var uploadpercentage = Math.round(progress);
-      // console.log(uploadpercentage);
+      console.log(uploadpercentage);
       progressDiv.style.display = "block";
-      progressBar.style.width = `${uploadpercentage}%`;
-      progressBar.innerHTML = `${uploadpercentage}%`;
+      progressbar.style.width = `${uploadpercentage}%`;
+      progressbar.innerHTML = `${uploadpercentage}%`;
     },
-    (error) => {},
+    (error) => { },
     () => {
       uploadfile.snapshot.ref.getDownloadURL().then((downloadURL) => {
         url = downloadURL;
@@ -34,24 +51,22 @@ let uploadimg = (event) => {
     }
   );
 };
-
-
 var d = new Date().toLocaleDateString();
 
 
 function createpost() {
-  if (postValue.value !== " " || url !== " ") {
+  if (postvalue.value !== "" || url !== "") {
     firebase
       .firestore()
       .collection("posts")
       .add({
-        postValue: postValue.value,
-        uid: currentUser.uid,
+        postvalue: postvalue.value,
+        uid: currentuser.uid,
         url: url,
         filetype: fileType,
-        like: "",
-        dislikes: "",
-        comments: "",
+        like: [],
+        dislikes: [],
+        comments: [],
         Date: `${d}`
       })
       .then((res) => {
@@ -67,8 +82,14 @@ function createpost() {
             document.getElementById("uploadedmssage").style.display = "block";
             setTimeout(() => {
               location.reload();
-            }, 1000);
+            }, 2000);
           });
       });
   }
 }
+
+// const logout = ()=>{
+//   firebase.auth().signOut().then(() => {
+//     window.location.assign("./login.js")
+//   })
+// }
