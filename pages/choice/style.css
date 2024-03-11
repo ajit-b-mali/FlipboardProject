@@ -1,19 +1,29 @@
+:root {
+  --primary-bgcolor: #000;
+  --primary-txtcolor: #fff;
+}
+
+.light {
+  --primary-bgcolor: #fff;
+  --primary-txtcolor: #000;
+}
+
 body {
   margin: 0;
   padding: 0;
   padding-top: 10px;
-  background-color: var(--dark);
+  background-color: var(--primary-bgcolor);
 }
 
 h1 {
-  margin-top: 40px;
-  color: var(--dark);
+  /* margin-top: 40px; */
+  color: var(--primary-txtcolor);
   font-family: "Times New Roman", Times, serif;
   font-size: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px 30px;
+  margin: 70px 30px;
 }
 
 .container {

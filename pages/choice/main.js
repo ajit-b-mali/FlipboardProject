@@ -1,10 +1,10 @@
 const container = document.querySelector(".load_image");
 const message = document.querySelector(".msg");
-const btn = document.querySelector("button");
+const morebtn = document.querySelector("button");
 
-btn.addEventListener("click", function () {
+morebtn.addEventListener("click", function () {
   container.style.display = "block";
-  btn.style.display = "none";
+  morebtn.style.display = "none";
   message.innerHTML = "More to Exploer";
   message.style.color = "white";
   message.style.fontSize = "30px";
@@ -35,7 +35,7 @@ function activateButton() {
 }
 
 function submitAndChangeColor() {
-  if (choises.length === 5) {
+  if (choises.length === 3) {
     window.location.href = "../../pages/home/";
   } else {
     // alert("plz enter your choice")

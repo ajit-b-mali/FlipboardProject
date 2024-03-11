@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="/commonCss/mode1.css" />
-  
+    <link rel="stylesheet" href="../../commonCss/mode1.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
     />
   </head>
   <body>
@@ -294,7 +301,16 @@
         Activate and Submit
       </button>
     </div>
+
+    <script>
+      function menuToggle() {
+        const toggleMenu = document.querySelector(".menu1");
+        toggleMenu.classList.toggle("active");
+      }
+    </script>
+
     <script src="./main.js"></script>
-    <script src="/commonJs/mode.js"></script>
+    <script src="../../commonJs/mode.js"></script>
+    
   </body>
 </html>
