@@ -21,8 +21,8 @@
 }
 .dark-mode {
   position: fixed;
-  top: 0;
-  right: 120px;
+  top: 10px;
+  right: 100px;
 }
 
 .dark-mode .checkbox {
@@ -74,9 +74,12 @@
 
 .action {
   position: fixed;
-  right: 30px;
+  right: 20px;
+  top: 5px;
 }
-
+/* .nav1{
+  width: 42%;
+}  */
 .action .profile {
   position: relative;
   width: 60px;
@@ -94,7 +97,6 @@
   height: 100%;
   object-fit: cover;
 }
-
 .action .menu1 {
   position: absolute;
   top: 80px;
@@ -128,7 +130,7 @@
 .action .menu1 .ul-1 .li-1 {
   list-style: none;
   padding: 10px 0;
-  /* border-top: 1px solid rgba(0, 0, 0, 0.05); */
+  border-top: 1px solid rgba(0, 0, 0, 0.05); 
   display: flex;
   align-items: center;
 }
@@ -155,3 +157,42 @@
 .action .menu1 .ul-1 .li-1:hover a {
   color: #ff5d94;
 }
+
+/* Profile
+
+.action{
+  /* background-color: #ffffff; 
+    margin: 0px;
+    border-radius: 5px;
+    /* margin-bottom: 10px;
+    margin-top: -10px; 
+    padding: 4px;
+    /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; 
+    display: flex;
+    flex-direction: row;
+    margin-left:100%;
+}
+ .profilepicture{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.inputfirst {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#a {
+  background-color: #f0f2f5;
+   width: 200px; 
+  font-size: 15px;
+   height: 40px; 
+  outline: none !important;
+  border: none;
+  margin: 0px;
+  padding: 15px;
+  padding-left: 20px;
+  border-radius: 20px;
+  margin-right: 10px;
+} */
