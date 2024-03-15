@@ -8,18 +8,18 @@ var done = document.getElementById("done");
 let uid;
 let alluser = [];
 let userimg = document.getElementById("userimg");
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    if (user.emailVerified) {
-      uid = user.uid;
-      console.log("Email is verified!");
-    } else {
-      window.location.assign("./email.html");
-    }
-  } else {
-    window.location.assign("./login.html");
-  }
-});
+// firebase.auth().onAuthStateChanged((user) => {
+//   if (user) {
+//     if (user.emailVerified) {
+//       uid = user.uid;
+//       // console.log("Email is verified!");
+//     } else {
+//       window.location.assign("../../index.html");
+//     }
+//   } else {
+//     window.location.assign("./login.html");
+//   }
+// });
 
 firebase.auth().onAuthStateChanged((user) => {
   currentuser = user;
