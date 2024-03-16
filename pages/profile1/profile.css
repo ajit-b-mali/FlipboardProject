@@ -18,12 +18,12 @@
     border-radius: 30px;
     /* padding: 10px; */
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    width: 70%;
-    height: 480px;
+    width: 80%;
+    height: 550px;
     background: #12c2e9;  
 background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  
 background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
-margin-left: 22%;
+margin-left: 17%;
 margin-top: 80px;
 }
 
@@ -32,11 +32,11 @@ margin-top: 80px;
 background: -webkit-linear-gradient(to right, #434343, #000000);
 background: linear-gradient(to right, #434343, #000000); 
     flex: 1;
-    max-width: 30%;
+    max-width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height:430px;
+    height:500px;
     padding: 10px;
     margin: 30px;
     border-radius: 20px;
@@ -48,8 +48,8 @@ background: linear-gradient(to right, #434343, #000000);
     background: -webkit-linear-gradient(to left, #434343, #000000);
     background: linear-gradient(to left, #434343, #000000); 
     flex: 1;
-    max-width:70%;
-    height:430px;
+    max-width:80%;
+    height:500px;
     padding: 10px;
     margin: 20px;
     border-radius:30px;
@@ -104,8 +104,9 @@ background: linear-gradient(to right, #434343, #000000);
 
   #usercoverpicture{
     position: relative;
-    left: 7%;
+    left: 2%;
     margin-top: 20px;
+    width: 400px;
 }
 
 #choosecoverimg {
@@ -118,13 +119,13 @@ background: linear-gradient(to right, #434343, #000000);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
       rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
-#usercoverimg {
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-   width: 250px;
+/* #usercoverimg {
+    /* border-top-right-radius: 10px;
+    border-top-left-radius: 10px; */
+   /*  width: 350px;
     max-height: 40vh;
-    left: 80px;
-  }
+    
+  } */
 #userprofilepicture {
     position: absolute;
     top: 20%;
@@ -134,12 +135,12 @@ background: linear-gradient(to right, #434343, #000000);
     border-radius: 100px;
     height: 100px;
     width: 100px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
   #chooseprofileimg {
     position: absolute;
     bottom: 45%;
-    left: 20px;
+    left: 70px;
 }
 #progressbardiv {
     border-radius: 10px;

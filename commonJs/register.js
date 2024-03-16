@@ -44,13 +44,13 @@ const signup = () => {
           .then((res) => {
             Message.innerHTML = "Account was Successfully Created";
             Message.style.color = "green";
+            window.location = "./pages/choice/";
           });
-        window.location = "./pages/choice/";
       })
-      .catch((error) => {
-        Message.innerHTML = "something went wrong";
-        console.log(error.message);
-        Message.style.color = "red";
-      });
+      // .catch((error) => {
+      //   Message.innerHTML = "something went wrong";
+      //   console.log(error.message);
+      //   Message.style.color = "red";
+      // });
   }
 };
