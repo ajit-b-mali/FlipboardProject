@@ -58,6 +58,7 @@ function showPosts() {
       .collection("users")
       .doc(postData.uid)
       .onSnapshot((user) => {
+        console.log(user.data(), postData);
         addPostCard(user.data(), postData);
       });
   }
@@ -71,20 +72,26 @@ function showPosts() {
 
     let postCard = document.createElement("div");
     postCard.classList.add("card", imageType[random(3)]);
-
-    let isLiked = false;
-    for (let likeIndex = 0; likeIndex < postData["like"].length; likeIndex++) {
-      if (postData["like"][likeIndex] === uid) {
-        isLiked = true;
-      }
-    }
+    postCard.addEventListener("click", () => {
+      expandPost(postData.id);
+    });
 
     postCard.innerHTML = `
-      <img src="${postData.url}" onclick="expandPost('${postData.id}')" alt="image">
-      <button class="hide">Save</button>
-      <div class="iconn">
-          <i class="ri-arrow-down-circle-fill icon-2"></i>
-          <button onclick="share('${postData.url}')"><i class="ri-more-fill icon-2"></i></button>
+      <img
+        src="${postData.url}"
+        alt="image"
+      />
+      <div class="username">
+        <img src="${userData.ProfilePicture}" alt="" />
+        <p>${userData.FirstName}</p>
+      </div>
+      <div class="reactions">
+        <div class="like">
+          <i class="ri-thumb-up-fill icon-2"></i><span>${postData.like.length}</span>
+        </div>
+        <div class="dislike">
+          <i class="ri-thumb-down-fill icon-2"></i><span>${postData.dislikes.length}</span>
+        </div>
       </div>
     `;
 
@@ -93,7 +100,7 @@ function showPosts() {
 }
 
 function expandPost(id) {
-  window.location = "./view-post.html?id=" + id;
+  window.location = "../viewPost/index.html?id=" + id;
 }
 
 function share(urlString) {

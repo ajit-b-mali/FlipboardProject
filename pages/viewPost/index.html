@@ -151,6 +151,9 @@
     <main>
       <div class="top-section">
         <div class="left">
+          <div class="save">
+            <h3>Save</h3>
+          </div>
           <img src="../../assets/img.jpg" alt="image" />
         </div>
         <div class="right">
@@ -160,8 +163,12 @@
           </div>
           <h3 class="post-title">This is the post title/caption.</h3>
           <div class="interact-bar">
-            <i class="ri-arrow-down-circle-fill icon-2"></i>
-            <i class="ri-share-forward-fill icon-2"></i>
+            <div class="like">
+              <i class="ri-thumb-up-fill icon-2"></i><span>89</span>
+            </div>
+            <div class="dislike">
+              <i class="ri-thumb-down-fill icon-2"></i><span>89</span>
+            </div>
             <i class="ri-arrow-down-circle-fill icon-2"></i>
             <i class="ri-share-forward-fill icon-2"></i>
           </div>
@@ -169,12 +176,14 @@
             <h3><span id="comment-count">69</span> Comments</h3>
             <div class="comment-input">
               <input type="text" placeholder="Add a comment" />
-              <button>send</button>
+              <div class="send"><i class="ri-send-plane-fill"></i> Send</div>
             </div>
           </div>
           <div class="comments-div">
             <h2 onclick="expandComments()">All Comments</h2>
-            <div class="cancel" onclick="expandComments()">x</div>
+            <div class="cancel" onclick="expandComments()">
+              <i class="ri-close-fill"></i>
+            </div>
             <div class="all-comments">
               <div class="comment-card">
                 <div class="user">
