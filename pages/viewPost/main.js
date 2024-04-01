@@ -15,7 +15,7 @@ const postUserName = document.querySelector(".right .top-bar h4");
 const postCategory = document.querySelector(".post .category");
 const postImg = document.querySelector("#post-img");
 const likeCount = document.querySelector(".like span");
-const likeBtn = document.querySelector(".like");
+const likeBtn = document.querySelector(".interact-bar .like");
 const dislikeCount = document.querySelector(".dislike span");
 const dislikeBtn = document.querySelector(".dislike");
 const commentCount = document.querySelector("#comment-count");
@@ -94,7 +94,7 @@ function fillPostData(postData, userData) {
     }
   }
 
-  likeBtn.addEventListener("click", () => {
+  dislikeBtn.addEventListener("click", () => {
     let dislikes = false;
     for (
       let dislikesIndex = 0;
@@ -141,13 +141,11 @@ function fillComments(commentarry) {
           let commentCard = document.createElement("div");
           commentCard.classList.add("comment-card");
           commentCard.innerHTML = `
-            <div class="dp-name">
-              <img src="${userData["profile-img"]}" />
-              <h4>${userData["first-name"]} ${userData["last-name"]}</h4>
-            </div>
-            <div class="comment-text">
-              ${commentarry[commentindex]["commentText"]}
-            </div>
+            <div class="user">
+                  <img src="${userData["ProfilePicture"]}" alt="" />
+                  <small>${userData["FirstName"]}</small>
+                </div>
+                <div class="text">${commentarry[commentindex]["commentText"]}</div>
           `;
           allComments.appendChild(commentCard);
         });

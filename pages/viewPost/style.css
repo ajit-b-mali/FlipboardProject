@@ -45,6 +45,7 @@ body {
   object-fit: cover;
 }
 .left .save {
+  cursor: pointer;
   position: absolute;
   bottom: 0;
   margin: 10px;
@@ -239,7 +240,7 @@ h1 {
   align-items: start;
 }
 
-img {
+.card img {
   height: 100%;
   width: 100%;
   /* background-position:center;
