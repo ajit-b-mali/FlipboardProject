@@ -76,8 +76,8 @@ body {
   margin-block: 20px;
   border-radius: 10px;
   min-height: 2rem;
-  max-height: 6rem;
-  overflow: hidden;
+  max-height: 5.7rem;
+  overflow-y: scroll;
 }
 .interact-bar {
   display: flex;
@@ -89,6 +89,10 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.like.true i,
+.dislike.true i {
+  color: rgb(34, 214, 214);
 }
 
 .comments {
@@ -213,6 +217,7 @@ h1 {
 }
 
 .card {
+  cursor: pointer;
   padding: 0;
   margin: 15px 10px;
   border-radius: var(--card_border_radius);
@@ -258,28 +263,51 @@ h1 {
   align-items: start;
 }
 
-.hide {
+.username {
   position: absolute;
-  width: 80px;
-  height: 40px;
-  border-radius: 17px;
-  cursor: pointer;
-  padding: 5px 10px;
-  margin: 10px 10px;
-  background-color: red;
+  left: 0;
+  top: -20%;
+  background: linear-gradient(to top, #0000, #000c);
+  padding: 7px;
   color: white;
-  font-size: 15px;
-  border: none;
-  /* display: none; */
-  /* opacity: 0; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all ease 0.2s;
+}
+.username img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+.card:hover .username {
+  top: 0;
+}
+.card:hover .reactions {
+  bottom: 0;
 }
 
-.hide {
-  opacity: 0;
+.reactions {
+  position: absolute;
+  left: 0;
+  bottom: -20%;
+  background: linear-gradient(to bottom, #0000, #000c);
+  padding: 10px;
+  color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all ease 0.2s;
 }
-
-.card:hover .hide {
-  opacity: 1;
+.reactions > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.reactions i {
+  font-size: 1.3rem;
 }
 
 .iconn {

@@ -1,4 +1,5 @@
 let postvalue = document.getElementById("textarea");
+let category = document.getElementById("category");
 var progressDiv = document.getElementById("progressdiv");
 var progressbar = document.getElementById("progressbar");
 let currentuser = "";
@@ -41,7 +42,7 @@ let uploadimg = (event) => {
       progressbar.style.width = `${uploadpercentage}%`;
       progressbar.innerHTML = `${uploadpercentage}%`;
     },
-    (error) => { },
+    (error) => {},
     () => {
       uploadfile.snapshot.ref.getDownloadURL().then((downloadURL) => {
         url = downloadURL;
@@ -53,7 +54,6 @@ let uploadimg = (event) => {
 };
 var d = new Date().toLocaleDateString();
 
-
 function createpost() {
   if (postvalue.value !== "" || url !== "") {
     firebase
@@ -61,13 +61,14 @@ function createpost() {
       .collection("posts")
       .add({
         postvalue: postvalue.value,
+        category: category.value,
         uid: currentuser.uid,
         url: url,
         filetype: fileType,
         like: [],
         dislikes: [],
         comments: [],
-        Date: `${d}`
+        Date: `${d}`,
       })
       .then((res) => {
         firebase
@@ -75,10 +76,10 @@ function createpost() {
           .collection("posts/")
           .doc(res.id)
           .update({
-            id: res.id
+            id: res.id,
           })
           .then(() => {
-            done.style.display = "none"
+            done.style.display = "none";
             document.getElementById("uploadedmssage").style.display = "block";
             setTimeout(() => {
               location.reload();

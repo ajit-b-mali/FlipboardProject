@@ -23,8 +23,8 @@ const postTitle = document.querySelector(".post-title");
 const commentInput = document.querySelector(".comment-input input");
 const sendCommentBtn = document.querySelector(".comment-input .send");
 const allComments = document.querySelector(".all-comments");
-
-const postsDiv = document.querySelector(".posts");
+const showCategory = document.querySelector("#category-name");
+const postsDiv = document.querySelector(".pin_container");
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
@@ -43,7 +43,7 @@ firebase.auth().onAuthStateChanged((user) => {
             userData = data.data();
             fillPostData(postData, userData);
           });
-        // showPosts(postData["category"]);
+        showPosts(postData["category"]);
       });
   } else {
     // window.location.assign("../index.html");
@@ -61,7 +61,7 @@ function fillPostData(postData, userData) {
 
   for (let likeIndex = 0; likeIndex < postData["like"].length; likeIndex++) {
     if (postData["like"][likeIndex] === uid) {
-      likeBtn.classList.add("liked");
+      likeBtn.classList.add("true");
     }
   }
 
@@ -71,7 +71,7 @@ function fillPostData(postData, userData) {
       if (postData["like"][likeIndex] === uid) {
         like = true;
         postData["like"].splice(likeIndex, 1);
-        likeBtn.classList.remove("liked");
+        likeBtn.classList.remove("true");
       }
     }
     if (!like) {
@@ -90,7 +90,7 @@ function fillPostData(postData, userData) {
     dislikesIndex++
   ) {
     if (postData["dislikes"][dislikesIndex] === uid) {
-      likeBtn.classList.add("liked");
+      dislikeBtn.classList.add("true");
     }
   }
 
@@ -104,7 +104,7 @@ function fillPostData(postData, userData) {
       if (postData["dislikes"][dislikesIndex] === uid) {
         dislikes = true;
         postData["dislikes"].splice(dislikesIndex, 1);
-        likeBtn.classList.remove("liked");
+        dislikeBtn.classList.remove("true");
       }
     }
     if (!dislikes) {
@@ -120,6 +120,8 @@ function fillPostData(postData, userData) {
   postTitle.innerText = postData["postvalue"];
 
   fillComments(postData["comments"]);
+
+  showCategory.innerHTML = postData["category"];
 }
 
 function fillComments(commentarry) {
@@ -174,3 +176,70 @@ sendCommentBtn.addEventListener("click", () => {
       });
   }
 });
+
+function showPosts(query) {
+  if (query) {
+    firebase
+      .firestore()
+      .collection("posts")
+      .where("category", "==", query)
+      .get()
+      .then((posts) => {
+        if (posts.docs.length > 1) {
+          postsDiv.innerHTML = "";
+          posts.forEach((post) => {
+            getPostCreater(post.data());
+          });
+        }
+      });
+  }
+
+  function getPostCreater(postData) {
+    firebase
+      .firestore()
+      .collection("users")
+      .doc(postData.uid)
+      .onSnapshot((user) => {
+        addPostCard(user.data(), postData);
+      });
+  }
+
+  function addPostCard(userData, postData) {
+    const imageType = ["card_small", "card_medium", "card_large"];
+
+    function random(max) {
+      return Math.floor(Math.random() * max);
+    }
+
+    let postCard = document.createElement("div");
+    postCard.classList.add("card", imageType[random(3)]);
+    postCard.addEventListener("click", () => {
+      expandPost(postData.id);
+    });
+
+    postCard.innerHTML = `
+      <img
+        src="${postData.url}"
+        alt="image"
+      />
+      <div class="username">
+        <img src="${userData.ProfilePicture}" alt="" />
+        <p>${userData.FirstName}</p>
+      </div>
+      <div class="reactions">
+        <div class="like">
+          <i class="ri-thumb-up-fill icon-2"></i><span>${postData.like.length}</span>
+        </div>
+        <div class="dislike">
+          <i class="ri-thumb-down-fill icon-2"></i><span>${postData.dislikes.length}</span>
+        </div>
+      </div>
+    `;
+
+    postsDiv.appendChild(postCard);
+  }
+}
+
+function expandPost(id) {
+  window.location = "../viewPost/index.html?id=" + id;
+}
