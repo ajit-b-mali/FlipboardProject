@@ -23,3 +23,11 @@ function checkLightMode() {
   }
 }
 checkLightMode();
+
+
+
+const settingsMenu = document.querySelector(".setting-menu");
+
+function settingsMenuToggle() {
+  settingsMenu.classList.toggle("settings-menu-height");
+}

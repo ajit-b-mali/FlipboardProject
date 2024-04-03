@@ -35,13 +35,25 @@
   <body>
     <div class="topbar">
       <div class="action">
-        <div class="profile" onclick="menuToggle()">
+        <div class="profile" onclick="settingsMenuToggle()">
           <img
             src="https://media.istockphoto.com/id/1317804578/photo/one-businesswoman-headshot-smiling-at-the-camera.jpg?b=1&s=612x612&w=0&k=20&c=XdZqQ92Yk82otKZio_pE0KURn0U08sIr5Vz9bFSm7bM="
+            id="header-nav-dp"
           />
         </div>
-        <div class="menu1">
+        
+        <!-- <div class="menu1">
           <ul class="ul-1">
+            <div class="user-profile">
+              <img
+                id="setting-menu-dp"
+                src="https://firebasestorage.googleapis.com/v0/b/devohub7.appspot.com/o/DHDP.png?alt=media&token=d14ac81d-9f24-4fd3-b445-75364e277053"
+              />
+              <div>
+                <p id="setting-menu-username">User Name</p>
+                <a href="profile.html">See your profile</a>
+              </div>
+            </div>
             <li class="li-1">
               <i class="ri-user-line icon-1"></i><a href="#">My Profile</a>
             </li>
@@ -58,7 +70,56 @@
               <i class="ri-logout-box-line icon-1"></i><a href="#">LogOut</a>
             </li>
           </ul>
-        </div>
+        </div> -->
+        <div class="setting-menu">
+          <div class="setting-menu-inner">
+            <div class="user-profile">
+              <img
+                id="setting-menu-dp"
+                src="https://firebasestorage.googleapis.com/v0/b/devohub7.appspot.com/o/DHDP.png?alt=media&token=d14ac81d-9f24-4fd3-b445-75364e277053"
+              />
+              <div>
+                <p id="setting-menu-username">User Name</p>
+                <a href="profile.html">See your profile</a>
+              </div>
+            </div>
+            <div class="user-profile feedback">
+              <span class="material-symbols-outlined"> reviews </span>
+              <div>
+                <p>Give Feedback</p>
+                <a href="feedback.html">Help us to improve new design</a>
+              </div>
+            </div>
+    
+            <div class="setting-links">
+              <span class="material-symbols-outlined"> settings </span>
+              <a href="setting.html"
+                >Setting & Theme
+                <span class="material-symbols-outlined"> chevron_right </span></a
+              >
+            </div>
+            <div class="setting-links">
+              <span class="material-symbols-outlined">contact_support</span>
+              <a href="help.html"
+                >Help & Support
+                <span class="material-symbols-outlined"> chevron_right </span></a
+              >
+            </div>
+            <div class="setting-links">
+              <span class="material-symbols-outlined"> groups_3 </span>
+              <a href="about-us.html"
+                >About us<span class="material-symbols-outlined">
+                  chevron_right
+                </span></a
+              >
+            </div>
+            <div class="setting-links">
+              <span class="material-symbols-outlined"> logout </span>
+              <a href="log-out.html"
+                >Log-out
+                <span class="material-symbols-outlined"> chevron_right </span></a
+              >
+            </div>
       </div>
       <header class="dark-mode" style="z-index: 10">
         <input type="checkbox" id="toogle-mode" class="checkbox" />
@@ -69,7 +130,8 @@
         </label>
       </header>
     </div>
-
+      </div>
+    </div>
     <!--nav-->
     <div class="menu">
       <ion-icon name="menu-outline"></ion-icon>
@@ -165,7 +227,7 @@
     ></script>
     <script>
       function menuToggle() {
-        const toggleMenu = document.querySelector(".menu1");
+        const toggleMenu = document.querySelector(".setting-menu");
         toggleMenu.classList.toggle("active");
       }
     </script>

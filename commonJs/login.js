@@ -20,7 +20,7 @@ const Log = () => {
       .then((userCredential) => {
         Messages.innerHTML = "Sign In Successful";
         Messages.style.color = "green";
-        location.href = "./pages/home/index.html";
+        location.href = "./pages/home1/index.html";
       })
       .catch((error) => {
         Messages.innerHTML = error.message;
