@@ -38,7 +38,7 @@ const pin_container = document.querySelector(".pin_container");
 const imageType = ["card_small", "card_medium", "card_large"];
 
 function random(max) {
-  return Math.floor(Math.random() * (max - 1));
+  return Math.floor(Math.random() * max);
 }
 
 imgData.forEach((data) => {
@@ -72,6 +72,3 @@ function share(urlString) {
     });
   }
 }
-
-
-

@@ -148,32 +148,110 @@
       </div>
     </div>
 
-    <div class="pin_container">
-      <div class="card card_medium">
-        <img
-          src="../../assets/img.jpg"
-          onclick="expandPost('fi6E16nRw2Snwu0XApSW')"
-          alt="image"
-        />
-        <div class="username">
-          <img src="../../assets/download.png" alt="" />
-          <p>User Name</p>
-        </div>
-        <div class="reactions">
-          <div class="like">
-            <i class="ri-thumb-up-fill icon-2"></i><span>89</span>
+    <main>
+      <div class="top-section">
+        <div class="left">
+          <div class="save">
+            <h3>Save</h3>
           </div>
-          <div class="dislike">
-            <i class="ri-thumb-down-fill icon-2"></i><span>89</span>
+          <img id="post-img" src="" alt="image" />
+        </div>
+        <div class="right">
+          <div class="top-bar">
+            <img src="../../assets/download.png" alt="" />
+            <h4></h4>
+          </div>
+          <h3 class="post-title"></h3>
+          <div class="interact-bar">
+            <div class="like">
+              <i class="ri-thumb-up-fill icon-2"></i><span></span>
+            </div>
+            <div class="dislike">
+              <i class="ri-thumb-down-fill icon-2"></i><span></span>
+            </div>
+            <i class="ri-arrow-down-circle-fill icon-2"></i>
+            <i class="ri-share-forward-fill icon-2"></i>
+          </div>
+          <div class="comments">
+            <h3><span id="comment-count"></span> Comments</h3>
+            <div class="comment-input">
+              <input type="text" placeholder="Add a comment" />
+              <div class="send"><i class="ri-send-plane-fill"></i> Send</div>
+            </div>
+          </div>
+          <div class="comments-div">
+            <h2 onclick="expandComments()">All Comments</h2>
+            <div class="cancel" onclick="expandComments()">
+              <i class="ri-close-fill"></i>
+            </div>
+            <div class="all-comments">
+              <div class="comment-card">
+                <h4 style="text-align: center">No Comments</h4>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <h1>More posts on <span id="category-name"></span></h1>
+
+      <div class="pin_container">
+        <h2 style="grid-column: 2/4; text-align: center; padding-bottom: 100px">
+          No more related posts
+        </h2>
+        <!-- <div class="card card_medium">
+          <img src="../../assets/img.jpg" alt="image" />
+          <button class="hide">Save</button>
+          <div class="iconn">
+            <i class="ri-arrow-down-circle-fill icon-2"></i>
+            <i class="ri-share-forward-fill icon-2"></i>
+          </div>
+        </div>
+        <div class="card card_large">
+          <img src="../../assets/img.jpg" alt="image" />
+          <button class="hide">Save</button>
+          <div class="iconn">
+            <i class="ri-arrow-down-circle-fill icon-2"></i>
+            <i class="ri-share-forward-fill icon-2"></i>
+          </div>
+        </div>
+        <div class="card card_medium">
+          <img src="../../assets/img.jpg" alt="image" />
+          <button class="hide">Save</button>
+          <div class="iconn">
+            <i class="ri-arrow-down-circle-fill icon-2"></i>
+            <i class="ri-share-forward-fill icon-2"></i>
+          </div>
+        </div>
+        <div class="card card_small">
+          <img src="../../assets/img.jpg" alt="image" />
+          <button class="hide">Save</button>
+          <div class="iconn">
+            <i class="ri-arrow-down-circle-fill icon-2"></i>
+            <i class="ri-share-forward-fill icon-2"></i>
+          </div>
+        </div>
+        <div class="card card_medium">
+          <img src="../../assets/img.jpg" alt="image" />
+          <button class="hide">Save</button>
+          <div class="iconn">
+            <i class="ri-arrow-down-circle-fill icon-2"></i>
+            <i class="ri-share-forward-fill icon-2"></i>
+          </div>
+        </div>
+        <div class="card card_small">
+          <img src="../../assets/img.jpg" alt="image" />
+          <button class="hide">Save</button>
+          <div class="iconn">
+            <i class="ri-arrow-down-circle-fill icon-2"></i>
+            <i class="ri-share-forward-fill icon-2"></i>
+          </div>
+        </div> -->
+      </div>
+    </main>
 
     <script src="../../commonJs/mode.js"></script>
     <script src="../../commonJs/nav.js"></script>
-    <!-- <script src="./main.js"></script> -->
-    <!-- <script src="./url.js"></script> -->
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -189,8 +267,7 @@
       }
     </script>
     <script src="../../commonJs/firebase.js"></script>
-    <script src="./home.js"></script>
-
+    <script src="main.js"></script>
     <!----LogOut-->
     <script>
       function logout() {
