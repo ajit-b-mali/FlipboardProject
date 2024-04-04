@@ -11,7 +11,7 @@ firebase.auth().onAuthStateChanged((user) => {
           let card = document.createElement("div");
           card.classList.add("card");
           card.innerHTML = `
-          <a href="user-profile.html?uid=${user.data()["uid"]}">
+          <a href="userdetail.html?uid=${user.data()["uid"]}">
           <h2 class="description">${
             user.data()["FirstName"]}</h2>
             <div class="image">

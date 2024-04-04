@@ -15,14 +15,14 @@ body {
   position: relative;
   align-items: center;
   justify-content: center;
-  top: 5%;
+  top: 10%;
   left: 30px;
 }
 .search::before,
 .search img,
 .lightbox {
   left: 20%;
-  /* top: 40%; */
+   /* top: 5%; */
   width: 70%;
   height: 90%;
   position: absolute;
