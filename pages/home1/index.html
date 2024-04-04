@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../commonCss/nav1.css">
+    <link rel="stylesheet" href="nav.css">
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
+</head>
+<body>
+     <div class="header-nav">
+      <div class="nav-left">
+        <span class="material-symbols-outlined menu"> menu </span>
+      </div>
+      
+      <div class="nav-right">
+        <div class="theme-toggle-wrapper">
+          <!-- <div class="theme-toggle">
+            <div class="circle"></div>
+            <span class="material-symbols-outlined icon moon"> dark_mode </span>
+            <span class="material-symbols-outlined icon sun"> light_mode </span>
+          </div> -->
+        </div>
+        <div class="nav-user-icon online" onclick="settingsMenuToggle()">
+          <img
+            id="header-nav-dp"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGU75F10hHYzumh3r2HkDve9wTh2GLZ57ENYSMl4G5SC3lKc_3ZuZmnzC-RfYJoxThvMA&usqp=CAU"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="setting-menu">
+      <div class="setting-menu-inner">
+        <div class="user-profile">
+          <img
+            id="setting-menu-dp"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGU75F10hHYzumh3r2HkDve9wTh2GLZ57ENYSMl4G5SC3lKc_3ZuZmnzC-RfYJoxThvMA&usqp=CAU"
+          />
+          <div>
+            <p id="setting-menu-username">User Name</p>
+            <a href="profile.html">See your profile</a>
+          </div>
+        </div>
+        <!-- <div class="user-profile feedback">
+          <span class="material-symbols-outlined"></span>
+          <div>
+            <p>Give Feedback</p>
+            <a href="feedback.html">Help us to improve new design</a>
+          </div>
+        </div> -->
+
+        <div class="setting-links">
+          <span class="material-symbols-outlined"> </span>
+          <a href="setting.html"
+            >Setting & Theme
+            <span class="material-symbols-outlined"> </span></a
+          >
+        </div>
+        <div class="setting-links">
+          <span class="material-symbols-outlined"></span>
+          <a href="help.html"
+            >Help & Support
+            <span class="material-symbols-outlined">  </span></a
+          >
+        </div>
+        <div class="setting-links">
+          <span class="material-symbols-outlined"> </span>
+          <a href="about-us.html"
+            >About us<span class="material-symbols-outlined">
+              
+            </span></a
+          >
+        </div>
+        <div class="setting-links">
+          <span class="material-symbols-outlined"> </span>
+          <a href="log-out.html"
+            >Log-out
+            <span class="material-symbols-outlined">  </span></a
+          >
+        </div>
+      </div>
+    </div>
+    
+      <aside>
+        <!--nav-->
+    <div class="menu">
+        <ion-icon name="menu-outline"></ion-icon>
+        <ion-icon name="close-outline"></ion-icon>
+      </div>
+  
+      <div class="barra-lateral">
+        <div>
+          <div class="nombre-pagina">
+            <ion-icon id="cloud" name="cloud-outline"></ion-icon>
+            <span>Apex</span>
+          </div>
+          <button class="boton">
+            <ion-icon name="add-outline"></ion-icon>
+            <span>Create new</span>
+          </button>
+        </div>
+  
+        <nav class="navegacion">
+          <ul>
+            <li>
+              <a id="active" href="../home1/">
+                <!-- <ion-icon name="mail-unread-outline"></ion-icon> -->
+                <ion-icon name="home-outline"></ion-icon>
+                <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="../search/">
+                <!-- <ion-icon name="star-outline"></ion-icon> -->
+                <ion-icon name="search-outline"></ion-icon>
+                <span>Search</span>
+              </a>
+            </li>
+            <li>
+              <a href="../createPost/">
+                <!-- <ion-icon name="paper-plane-outline"></ion-icon> -->
+                <ion-icon name="add-outline"></ion-icon>
+                <span>Create</span>
+              </a>
+            </li>
+            <li>
+              <a href="../people/">
+                <ion-icon name="people-outline"></ion-icon>
+                <!-- <i class="fa-regular fa-users"></i> -->
+                <span>People</span>
+              </a>
+            </li>
+            <li>
+              <a href="../profile1/">
+                <ion-icon name="bookmark-outline"></ion-icon>
+                <span>Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <ion-icon name="settings-outline"></ion-icon>
+                <span>Setting</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" onclick="logout()">
+                <ion-icon name="trash-outline"></ion-icon>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+  
+        <div>
+          <div class="modo-oscuro">
+            <div class="switch"></div>
+          </div>
+  
+          <div class="usuario"></div>
+        </div>
+      </div>
+      </aside>
+    
+      <script src="../../commonJs/nav.js"></script>
+      <script src="nav.js"></script>
+      <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    
+       <script src="../../commonJs/firebase.js"></script>
+    <!----LogOut-->
+    <script>
+        function logout() {
+          firebase.auth().signOut();
+        }
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            console.log("user found");
+          } else {
+            location.href = "/index.html";
+          }
+        });
+      </script>
+</body>
+</html>
+
