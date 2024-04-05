@@ -31,7 +31,7 @@ const signup = () => {
           Email: Email.value,
           Password: Password.value,
           uid: userCredential.user.uid,
-          ProfilePicture: "",
+          ProfilePicture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGU75F10hHYzumh3r2HkDve9wTh2GLZ57ENYSMl4G5SC3lKc_3ZuZmnzC-RfYJoxThvMA&usqp=CAU",
           CoverPicture: "",
           Description: "",
           Signupdate: `${d}`,

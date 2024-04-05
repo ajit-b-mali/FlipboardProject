@@ -15,7 +15,7 @@ firebase.auth().onAuthStateChanged((user) => {
           <h2 class="description">${
             user.data()["FirstName"]}</h2>
             <div class="image">
-              <img src="${user.data()["profilePicture"]}" alt=" " />
+              <img src="${user.data()["ProfilePicture"]}" alt=" " />
             </div>
           </a>
           `;
