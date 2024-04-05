@@ -1,42 +1,26 @@
 
-const cloud = document.getElementById("cloud");
-const barraLateral = document.querySelector(".barra-lateral");
-const spans = document.querySelectorAll("span");
-const palanca = document.querySelector(".switch");
-const circulo = document.querySelector(".circulo");
-const menu = document.querySelector(".menu");
-const main = document.querySelector("main");
+const headerDP = document.querySelector("#headerdp");
+const MenuDP = document.querySelector("#menudp");
+const MenuUsername = document.querySelector("#menuusername");
 
-menu.addEventListener("click",()=>{
-    barraLateral.classList.toggle("max-barra-lateral");
-    if(barraLateral.classList.contains("max-barra-lateral")){
-        menu.children[0].style.display = "none";
-        menu.children[1].style.display = "block";
-    }
-    else{
-        menu.children[0].style.display = "block";
-        menu.children[1].style.display = "none";
-    }
-    if(window.innerWidth<=320){
-        barraLateral.classList.add("mini-barra-lateral");
-        main.classList.add("min-main");
-        spans.forEach((span)=>{
-            span.classList.add("oculto");
-        })
-    }
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    updateNav(user.uid);
+  } else {
+    
+  }
 });
 
-palanca.addEventListener("click",()=>{
-    let body = document.body;
-    // body.classList.toggle("dark-mode");
-    // body.classList.toggle("");
-    circulo.classList.toggle("prendido");
-});
-
-cloud.addEventListener("click",()=>{
-    barraLateral.classList.toggle("mini-barra-lateral");
-    main.classList.toggle("min-main");
-    spans.forEach((span)=>{
-        span.classList.toggle("oculto");
+function updateNav(uid) {
+  firebase
+    .firestore()
+    .collection("users")
+    .doc(uid)
+    .onSnapshot((data) => {
+      headerDP.src = data.data()["ProfilePicture"];
+      MenuDP.src = data.data()["ProfilePicture"];
+      MenuUsername.innerHTML = `${data.data()["FirstName"]} `;
     });
-});
+}
+
+

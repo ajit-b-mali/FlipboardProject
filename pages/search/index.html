@@ -20,30 +20,41 @@
 <body>
   <div class="topbar">
     <div class="action">
-      <div class="profile" onclick="menuToggle()">
+      <div class="profile" onclick=" menuToggle()">
         <img
-          src="https://media.istockphoto.com/id/1317804578/photo/one-businesswoman-headshot-smiling-at-the-camera.jpg?b=1&s=612x612&w=0&k=20&c=XdZqQ92Yk82otKZio_pE0KURn0U08sIr5Vz9bFSm7bM="
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGU75F10hHYzumh3r2HkDve9wTh2GLZ57ENYSMl4G5SC3lKc_3ZuZmnzC-RfYJoxThvMA&usqp=CAU"
+          id="headerdp"
         />
       </div>
-      <div class="menu1">
-        <ul class="ul-1">
+    <div class="menu1">
+      <ul class="ul-1">
+        <li class="li-1">
+            <img
+              id="menudp"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGU75F10hHYzumh3r2HkDve9wTh2GLZ57ENYSMl4G5SC3lKc_3ZuZmnzC-RfYJoxThvMA&usqp=CAU" class="profile"
+            />&nbsp;&nbsp;&nbsp;
+            <div>
+              <p id="menuusername">User Name</p>
+            </div>
+        </li>
+
           <li class="li-1">
-            <i class="ri-user-line icon-1"></i><a href="#">My Profile</a>
+            <i class="ri-user-line icon-1"></i><a href="../profile1/">My Profile</a>
           </li>
           <li class="li-1">
-            <i class="ri-mail-line icon-1"></i><a href="#">Inbox</a>
+            <i class="ri-mail-line icon-1"></i><a href="../inbox/">Inbox</a>
           </li>
           <li class="li-1">
-            <i class="ri-settings-2-line icon-1"></i><a href="#">Setting</a>
+            <i class="ri-settings-2-line icon-1"></i><a href="../about-us/">Setting</a>
           </li>
           <li class="li-1">
-            <i class="ri-question-line icon-1"></i><a href="#">Help</a>
+            <i class="ri-question-line icon-1"></i><a href="../help/">Help</a>
           </li>
           <li class="li-1">
-            <i class="ri-logout-box-line icon-1"></i><a href="#">LogOut</a>
+            <i class="ri-logout-box-line icon-1"></i><a href="#" onclick="logout()">LogOut</a>
           </li>
         </ul>
-      </div>
+      </div> 
     </div>
     <header class="dark-mode" style="z-index: 10">
       <input type="checkbox" id="toogle-mode" class="checkbox" />
@@ -97,7 +108,7 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="../people/">
             <ion-icon name="people-outline"></ion-icon>
             <!-- <i class="fa-regular fa-users"></i> -->
             <span>People</span>
@@ -110,9 +121,9 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="../about-us/">
             <ion-icon name="settings-outline"></ion-icon>
-            <span>Setting</span>
+            <span>setting</span>
           </a>
         </li>
         <li>
@@ -147,12 +158,12 @@
                 <ul class="images"> </ul>
                 <button class="load-more">Load More</button>
             </section>
-        
+
+<script src="../../commonJs/firebase.js"></script>
+<script src="../../commonJs/nav.js"></script>  
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script src="../../commonJs/mode.js"></script>
-<script src="../../commonJs/nav.js"></script>
-<script src="../../commonJs/firebase.js"></script>
 <script src="./main.js"></script>
 
 <script>
