@@ -1,3 +1,4 @@
+let rName = document.getElementById("right-name");
 let userprofileimg = document.getElementById("userprofileimg");
 let usercoverimg = document.getElementById("usercoverimg");
 let progressbar1 = document.getElementById("progressbar");
@@ -10,32 +11,85 @@ let uid; // Declare uid variable outside the onAuthStateChanged callback
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    if (user.emailVerified) {
-      uid = user.uid;
-      var createpostinput = document.getElementById("a");
-      firebase
-        .firestore()
-        .collection("users")
-        .onSnapshot((result) => {
-          result.forEach((users) => {
-            alluser.push(users.data());
-            fileType = users.data().filetype;
-            if (users.data().uid === user.uid) {
-              createpostinput.setAttribute(
-                "placeholder",
-                `What's on your mind, ${users.data().FirstName}?`
-              );
-              firstName.value = users.data().FirstName;
-              mobilenumber.value = users.data().MobileNumber;
-              email.value = users.data().Email;
-              email.disabled = true;
-              description.value = users.data().Description;
-            }
-          });
-        });
-    }
+    uid = user.uid;
+    firebase
+      .firestore()
+      .collection("users")
+      .doc(uid)
+      .onSnapshot((result) => {
+        console.log(result.data());
+        fileType = result.data().filetype;
+        userprofileimg.src = result.data().ProfilePicture;
+        usercoverimg.src = result.data().CoverPicture;
+        rName.innerText = result.data().FirstName;
+        firstName.value = result.data().FirstName;
+        mobilenumber.value = result.data().mobileNumber;
+        email.value = result.data().Email;
+        email.disabled = true;
+        description.value = result.data().Description;
+      });
   }
 });
+
+// changecoverpicture
+function changecoverpicture(event) {
+  var uploadTask = firebase
+    .storage()
+    .ref()
+    .child(`users/${uid}/coverpicture`)
+    .put(event.target.files[0]);
+  uploadTask.on(
+    "state_changed",
+    (snapshot) => {
+      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      progressbardiv.style.visibility = "visible";
+      var uploadpercentage = Math.round(progress);
+      progressbar1.style.width = `${uploadpercentage}%`;
+      progressbar1.innerHTML = `${uploadpercentage}%`;
+    },
+    (error) => {},
+    () => {
+      uploadTask.snapshot.ref.getDownloadURL().then((coverpicture) => {
+        progressbardiv.style.visibility = "hidden";
+        firebase
+          .firestore()
+          .collection("users/")
+          .doc(uid)
+          .update({ CoverPicture: coverpicture });
+      });
+    }
+  );
+}
+
+// changeprofilepicture
+function changeprofilepicture(event) {
+  var uploadTask = firebase
+    .storage()
+    .ref()
+    .child(`users/${uid}/profilepicture`)
+    .put(event.target.files[0]);
+  uploadTask.on(
+    "state_changed",
+    (snapshot) => {
+      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      progressbardiv.style.visibility = "visible";
+      var uploadpercentage = Math.round(progress);
+      progressbar1.style.width = `${uploadpercentage}%`;
+      progressbar1.innerHTML = `${uploadpercentage}%`;
+    },
+    (error) => {},
+    () => {
+      uploadTask.snapshot.ref.getDownloadURL().then((profileimage) => {
+        progressbardiv.style.visibility = "hidden";
+        firebase
+          .firestore()
+          .collection("users/")
+          .doc(uid)
+          .update({ ProfilePicture: profileimage });
+      });
+    }
+  );
+}
 
 // update button
 let update = () => {
@@ -51,7 +105,7 @@ let update = () => {
     var data = {
       firstName: firstName.value,
       mobileNumber: mobilenumber.value,
-      Description: description.value
+      Description: description.value,
     };
     firebase
       .firestore()

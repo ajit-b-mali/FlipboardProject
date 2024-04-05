@@ -212,11 +212,8 @@
             </div>
           </div>
         </div>
-        <!-- <h2 class="gradienttext">John Doe</h2> -->
-        <!-- <p>Web Developer</p> -->
-        <div style="padding: 0px" class="col-10 inputfirst">
-          <input type="text" id="a" />
-        </div>
+        <h2 class="gradienttext" id="right-name">John Doe</h2>
+        <br />
         <div class="buttons">
           <button id="btn-post">Post</button>
           <button id="btn-update">Profile update</button>
@@ -231,19 +228,30 @@
             <h3 class="gradienttext">Profile Details</h3>
             <div id="editabledatadiv">
               <label for="firstname" class="labels"> Name:</label>
-              <input type="text" id="firstname" class="userdatainputs">
+              <input type="text" id="firstname" class="userdatainputs" />
               <!-- <label for="lastname" class="labels">Last Name:</label>
               <input type="text" id="lastname" class="userdatainputs"> -->
               <label for="mobileno" class="labels">Mobile number:</label>
-              <input type="number" id="mobileno" class="userdatainputs">
+              <input type="number" id="mobileno" class="userdatainputs" />
               <label for="emailaddress" class="labels">Email Address:</label>
-              <input type="email" id="emailaddress" class="userdatainputs">
+              <input type="email" id="emailaddress" class="userdatainputs" />
               <label for="userdescription" class="labels">Description:</label>
-              <textarea id="userdescription" rows="5" placeholder="Description(Optinal)"></textarea>
+              <textarea
+                id="userdescription"
+                rows="5"
+                placeholder="Description(Optinal)"
+              ></textarea>
 
               <p id="message"></p>
-              <div class="col-12" style="display: flex; align-items: center;
-              justify-content: flex-end; margin-top: 10px;">
+              <div
+                class="col-12"
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-end;
+                  margin-top: 10px;
+                "
+              >
                 <button id="updatedatabutton" onclick="update()">Update</button>
               </div>
             </div>
