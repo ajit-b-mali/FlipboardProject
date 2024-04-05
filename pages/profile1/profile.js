@@ -1,103 +1,37 @@
-let userprofileimg =document.getElementById("userprofileimg");
-let usercoverimg =document.getElementById("usercoverimg");
-let progressdiv =document.getElementById("progressbardiv");
-let progressbar =document.getElementById("progressbar");
+let rName = document.getElementById("right-name");
+let userprofileimg = document.getElementById("userprofileimg");
+let usercoverimg = document.getElementById("usercoverimg");
+let progressbar1 = document.getElementById("progressbar");
+let progressbardiv = document.getElementById("progressbardiv");
+let firstName = document.getElementById("firstname");
+let mobilenumber = document.getElementById("mobileno");
+let email = document.getElementById("emailaddress");
+let description = document.getElementById("userdescription");
+let uid; // Declare uid variable outside the onAuthStateChanged callback
 
-let fileType ="";
-let uid;
-let updateurl;
-let allUsers = []
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    uid = user.uid;
+    firebase
+      .firestore()
+      .collection("users")
+      .doc(uid)
+      .onSnapshot((result) => {
+        console.log(result.data());
+        fileType = result.data().filetype;
+        userprofileimg.src = result.data().ProfilePicture;
+        usercoverimg.src = result.data().CoverPicture;
+        rName.innerText = result.data().FirstName;
+        firstName.value = result.data().FirstName;
+        mobilenumber.value = result.data().mobileNumber;
+        email.value = result.data().Email;
+        email.disabled = true;
+        description.value = result.data().Description;
+      });
+  }
+});
 
-// let changeCoverImage = (event) => {
-    
-//     var uploadfile = firebase
-//       .storage()
-//       .ref()
-//       .child(`users/${uid}/coverpicture`)
-//       .put(event.target.files[0]);
-//     uploadfile.on(
-//       "state_changed",
-//       (snapshot) => {
-//         var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-//         var uploadpercentage = Math.round(progress);
-//         console.log(uploadpercentage);
-//         progressdiv.style.display = "block";
-//         progressbar.style.width = `${uploadpercentage}%`;
-//         progressbar.innerHTML = `${uploadpercentage}%`;
-//       },
-//       (error) => { },
-//       () => {
-//         uploadfile.snapshot.ref.getDownloadURL().then((downloadURL) => {
-//           progressdiv.style.display = "none";
-//           firebase
-//           .firestore()
-//           .collection("users/")
-//           .doc(uid)
-//           .update({ CoverPicture: downloadURL });
-//         });
-//       }
-//     );
-//   };
-
-//   let changeProfileImage = (event) => {
-    
-//     var uploadfile = firebase
-//       .storage()
-//       .ref()
-//       .child(`users/${uid}/profilepicture`)
-//       .put(event.target.files[0]);
-//     uploadfile.on(
-//       "state_changed",
-//       (snapshot) => {
-//         var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-//         var uploadpercentage = Math.round(progress);
-//         console.log(uploadpercentage);
-//         progressdiv.style.display = "block";
-//         progressbar.style.width = `${uploadpercentage}%`;
-//         progressbar.innerHTML = `${uploadpercentage}%`;
-//       },
-//       (error) => { },
-//       () => {
-//         uploadfile.snapshot.ref.getDownloadURL().then((downloadURL) => {
-//           progressdiv.style.display = "none";
-//           firebase
-//           .firestore()
-//           .collection("users/")
-//           .doc(uid)
-//           .update({ ProfilePicture: downloadURL });
-//         });
-//       }
-//     );
-//   };
-
-
-
-
-//   firebase.auth().onAuthStateChanged((user) => {
-//     if (user) {
-//       if (user.emailVerified) {
-//         uid = user.uid;
-//         firebase.firestore().collection("users/").onSnapshot((result)=>{
-//           result.forEach((user)=>{
-//             allUsers.push(user.data())
-//             fileType = user.data.fileType;
-//             if(user.data().uid === user.uid){
-//               if(user.data().ProfilePicture !=="" || user.data().CoverPicture !==""){
-//                 userprofileimg.setAttribute("src", user.data().ProfilePicture || "https://nullchiropractic.com/wp-content/uploads/2017/11/profile-default-male-768x768.jpg")
-//                 usercoverimg.setAttribute("src" , user.data().CoverPicture || "https://media.istockphoto.com/id/490726872/photo/man-at-the-sunrise.jpg?b=1&s=170667a&w=0&k=20&c=ftoG5oljywajspsDYs9N37LgtiYYRHyySxgGpQb9r0Y=")
-//               }
-//             }
-//           })
-//         })
-//       } else {
-//         // window.location.assign("../../index.html");
-//       }
-//     } else {
-//       // window.location.assign("../../index.html");
-//     }
-//   });
-
-  
+// changecoverpicture
 function changecoverpicture(event) {
   var uploadTask = firebase
     .storage()
@@ -108,15 +42,15 @@ function changecoverpicture(event) {
     "state_changed",
     (snapshot) => {
       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      progressdiv.style.visibility = "visible";
+      progressbardiv.style.visibility = "visible";
       var uploadpercentage = Math.round(progress);
-      progressbar.style.width = `${uploadpercentage}%`;
-      progressbar.innerHTML = `${uploadpercentage}%`;
+      progressbar1.style.width = `${uploadpercentage}%`;
+      progressbar1.innerHTML = `${uploadpercentage}%`;
     },
     (error) => {},
     () => {
       uploadTask.snapshot.ref.getDownloadURL().then((coverpicture) => {
-        progressdiv.style.visibility = "hidden";
+        progressbardiv.style.visibility = "hidden";
         firebase
           .firestore()
           .collection("users/")
@@ -138,15 +72,15 @@ function changeprofilepicture(event) {
     "state_changed",
     (snapshot) => {
       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      progressdiv.style.visibility = "visible";
+      progressbardiv.style.visibility = "visible";
       var uploadpercentage = Math.round(progress);
-      progressbar.style.width = `${uploadpercentage}%`;
-      progressbar.innerHTML = `${uploadpercentage}%`;
+      progressbar1.style.width = `${uploadpercentage}%`;
+      progressbar1.innerHTML = `${uploadpercentage}%`;
     },
     (error) => {},
     () => {
       uploadTask.snapshot.ref.getDownloadURL().then((profileimage) => {
-        progressdiv.style.visibility = "hidden";
+        progressbardiv.style.visibility = "hidden";
         firebase
           .firestore()
           .collection("users/")
@@ -156,3 +90,38 @@ function changeprofilepicture(event) {
     }
   );
 }
+
+// update button
+let update = () => {
+  if (firstName.value === "") {
+    message.innerHTML = "First Name Required";
+    message.style.color = "red";
+    firstName.focus();
+  } else if (mobilenumber.value === "") {
+    message.innerHTML = "Mobile Number Required";
+    message.style.color = "red";
+    mobilenumber.focus();
+  } else {
+    var data = {
+      firstName: firstName.value,
+      mobileNumber: mobilenumber.value,
+      Description: description.value,
+    };
+    firebase
+      .firestore()
+      .collection("users")
+      .doc(uid)
+      .update(data)
+      .then((res) => {
+        console.log(res);
+        message.innerHTML = "Successfully Updated";
+        message.style.color = "green";
+        setTimeout(() => {
+          message.innerHTML = "";
+        }, 3000);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+};
