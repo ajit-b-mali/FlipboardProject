@@ -32,7 +32,7 @@ const signup = () => {
           Password: Password.value,
           uid: userCredential.user.uid,
           ProfilePicture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGU75F10hHYzumh3r2HkDve9wTh2GLZ57ENYSMl4G5SC3lKc_3ZuZmnzC-RfYJoxThvMA&usqp=CAU",
-          CoverPicture: "",
+          CoverPicture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtdtOhEhiJcmRb9v40mZ7mFbJC_HoeBM4v0w&s",
           Description: "",
           Signupdate: `${d}`,
         };
@@ -47,10 +47,6 @@ const signup = () => {
             window.location = "./pages/choice/";
           });
       })
-      // .catch((error) => {
-      //   Message.innerHTML = "something went wrong";
-      //   console.log(error.message);
-      //   Message.style.color = "red";
-      // });
-  }
+      
 };
+}
