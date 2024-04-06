@@ -9,9 +9,13 @@ let email = document.getElementById("emailaddress");
 let description = document.getElementById("userdescription");
 let uid; // Declare uid variable outside the onAuthStateChanged callback
 
+const urlParams = new URLSearchParams(window.location.search);
+let urlUid = urlParams.get("uid");
+
+
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    uid = user.uid;
+    uid = urlUid ? urlUid : user.uid;;
     firebase
       .firestore()
       .collection("users")
