@@ -1,4 +1,4 @@
-console.log("hello");
+// console.log("hello");
 const postsDiv = document.querySelector(".pin_container");
 
 function showPosts() {
@@ -8,7 +8,7 @@ function showPosts() {
     .where("uid", "==", uid)
     .get()
     .then((posts) => {
-      if (posts.docs.length > 1) {
+      if (posts.docs.length > 0) {
         postsDiv.innerHTML = "";
         posts.forEach((post) => {
           getPostCreater(post.data());
