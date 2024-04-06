@@ -103,7 +103,7 @@
   top: 80px;
   right: -10px;
   padding: 10px 20px;
-  background: white;
+  background: rgb(112, 109, 109);
   width: 200px;
   box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
@@ -124,7 +124,7 @@
   right: 28px;
   width: 20px;
   height: 20px;
-  background: white;
+  background: var(--primary-bgcolor);
   transform: rotate(45deg);
 }
 
@@ -150,7 +150,7 @@
 .action .menu1 .ul-1 .li-1 a {
   display: inline-block;
   text-decoration: none;
-  color: #555;
+  color: var(--primary-txtcolor);
   font-weight: 500;
   transition: 0.5s;
 }
