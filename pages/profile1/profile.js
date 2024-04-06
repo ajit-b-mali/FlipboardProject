@@ -31,6 +31,8 @@ firebase.auth().onAuthStateChanged((user) => {
         email.value = result.data().Email;
         email.disabled = true;
         description.value = result.data().Description;
+
+        showPosts();
       });
   }
 });
@@ -129,3 +131,4 @@ let update = () => {
       });
   }
 };
+
