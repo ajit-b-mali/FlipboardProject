@@ -267,7 +267,7 @@ h1 {
   position: absolute;
   left: 0;
   top: -20%;
-  background: linear-gradient(to top, #0000, #000c);
+  background: linear-gradient(to top, #e7676700, #000c);
   padding: 7px;
   color: white;
   width: 100%;
