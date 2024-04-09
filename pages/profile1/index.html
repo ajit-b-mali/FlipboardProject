@@ -234,7 +234,11 @@
             </div>
           </div>
         </div>
-        <h2 class="gradienttext" id="right-name">User Name</h2>
+        <h2 class="gradienttext" id="right-name">loading...</h2>
+        <div class="follow">
+          <div id="following">loading...</div>
+          <div id="followers">loading...</div>
+        </div>
         <br />
         <div class="buttons">
           <button id="btn-post">Post</button>
@@ -308,7 +312,7 @@
     <script src="./posts.js"></script>
     <script src="../../commonJs/nav.js"></script>
     <script src="../../commonJs/mode.js"></script>
-    <script src="extra.js"></script>
+    <!-- <script src="extra.js"></script> -->
 
     <!--logout-->
     <script>
@@ -316,9 +320,7 @@
         firebase.auth().signOut();
       }
       firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          console.log("user found");
-        } else {
+        if (!user) {
           location.href = "/index.html";
         }
       });

@@ -29,12 +29,13 @@ const signup = () => {
         const userData = {
           FirstName: FirstName.value,
           Email: Email.value,
-          Password: Password.value,
           uid: userCredential.user.uid,
           ProfilePicture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGU75F10hHYzumh3r2HkDve9wTh2GLZ57ENYSMl4G5SC3lKc_3ZuZmnzC-RfYJoxThvMA&usqp=CAU",
           CoverPicture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtdtOhEhiJcmRb9v40mZ7mFbJC_HoeBM4v0w&s",
           Description: "",
           Signupdate: `${d}`,
+          followers: [],
+          following: [],
         };
         firebase
           .firestore()

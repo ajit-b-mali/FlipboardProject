@@ -8,7 +8,8 @@ let mobilenumber = document.getElementById("mobileno");
 let email = document.getElementById("emailaddress");
 let description = document.getElementById("userdescription");
 let uid; // Declare uid variable outside the onAuthStateChanged callback
-
+let followers = document.getElementById("followers");
+let following = document.getElementById("following");
 const urlParams = new URLSearchParams(window.location.search);
 let urlUid = urlParams.get("uid");
 
@@ -21,7 +22,6 @@ firebase.auth().onAuthStateChanged((user) => {
       .collection("users")
       .doc(uid)
       .onSnapshot((result) => {
-        console.log(result.data());
         fileType = result.data().filetype;
         userprofileimg.src = result.data().ProfilePicture;
         usercoverimg.src = result.data().CoverPicture;
@@ -31,7 +31,8 @@ firebase.auth().onAuthStateChanged((user) => {
         email.value = result.data().Email;
         email.disabled = true;
         description.value = result.data().Description;
-
+        followers.innerHTML = "Followers - " + result.data().followers.length;
+        following.innerHTML = "Following - " + result.data().following.length;
         showPosts();
       });
   }

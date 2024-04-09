@@ -18,6 +18,14 @@
   --primary-text: black;
 }
 
+.follow {
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-block: 0.5rem;
+}
+
 .pin_container {
   margin: 0;
   padding: 0;
